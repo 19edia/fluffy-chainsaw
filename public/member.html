@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="same-origin">
+  <title>ROKUHARA • Portal dos membros</title>
+  <link rel="stylesheet" href="/member.css">
+  <script src="/member.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="/member.html" aria-label="Rokuhara, portal dos membros"><span class="brand-mark" aria-hidden="true">R</span><span>ROKUHARA<small>PORTAL DOS MEMBROS</small></span></a><span class="family-tag">Uma família. Uma identidade.</span></header>
+  <main>
+    <p id="initial-loading" class="initial-loading" role="status">Preparando seu acesso…</p>
+    <div id="access-view" class="access-layout" hidden>
+      <section class="intro" aria-labelledby="intro-title">
+        <p class="eyebrow">UNIÃO · RESPEITO · LEALDADE</p>
+        <h1 id="intro-title">Seu lugar<br> na <span>família.</span></h1>
+        <p class="intro-copy">Um espaço reservado para quem faz parte da Rokuhara.</p>
+        <div class="identity-note"><span class="identity-icon" aria-hidden="true">R</span><div><strong>Sua identidade abre as portas.</strong><p>O cadastro é exclusivo para membros com IFJ. Confirme sua identidade com o código enviado ao Discord vinculado à sua carteira.</p></div></div>
+        <p class="division-note">PRIMEIRA DIVISÃO <span aria-hidden="true">/</span> SEGUNDA DIVISÃO</p>
+      </section>
+      <section class="access-card" aria-label="Acesso dos membros">
+        <div class="tabs" aria-label="Escolha seu acesso"><a id="login-tab" class="tab" href="/member.html">Entrar</a><a id="register-tab" class="tab" href="/member.html?cadastro=1">Criar conta</a></div>
+        <section id="login-view" aria-labelledby="login-title" hidden>
+          <p class="eyebrow">BOM TER VOCÊ DE VOLTA</p><h2 id="login-title" tabindex="-1">Entre na sua conta</h2><p class="muted">Use o usuário e a senha da sua conta de membro.</p>
+          <form id="member-login-form">
+            <label for="login-username">Usuário</label><input id="login-username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="64" placeholder="Seu usuário" required>
+            <label for="login-password">Senha</label><div class="password-field"><input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="128" placeholder="Sua senha" required><button type="button" class="show-password" data-password="login-password" aria-controls="login-password" aria-pressed="false" aria-label="Mostrar senha">Mostrar</button></div>
+            <p id="login-feedback" class="feedback" role="status" aria-live="polite"></p><button class="primary" type="submit">Entrar →</button>
+          </form>
+          <p class="switch-copy">Primeira vez aqui? <a href="/member.html?cadastro=1" data-view="register">Crie sua conta</a></p>
+        </section>
+        <section id="register-view" aria-labelledby="register-title" hidden>
+          <p class="eyebrow">SUA IDENTIDADE, SEU ACESSO</p><h2 id="register-title" tabindex="-1">Faça parte deste espaço</h2><p class="muted">Você precisa de um IFJ válido e acesso ao Discord vinculado a ele.</p>
+          <form id="member-register-form">
+            <label for="register-ifj">Número do IFJ</label><input id="register-ifj" name="ifj" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]{15}" minlength="15" maxlength="15" placeholder="Os 15 dígitos da sua carteira" aria-describedby="ifj-hint" required><p id="ifj-hint" class="hint">Digite todos os 15 dígitos, incluindo os zeros no início.</p>
+            <label for="register-username">Escolha seu usuário</label><input id="register-username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="64" placeholder="Como você quer entrar" required>
+            <label for="register-password">Crie uma senha</label><div class="password-field"><input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" placeholder="Pelo menos 12 caracteres" aria-describedby="password-hint" required><button type="button" class="show-password" data-password="register-password" aria-controls="register-password" aria-pressed="false" aria-label="Mostrar senha">Mostrar</button></div><p id="password-hint" class="hint">Use de 12 a 128 caracteres.</p>
+            <label for="register-confirm">Confirme sua senha</label><input id="register-confirm" name="confirm_password" type="password" autocomplete="new-password" minlength="12" maxlength="128" placeholder="Repita a senha" required>
+            <p id="register-feedback" class="feedback" role="status" aria-live="polite"></p><button class="primary" type="submit">Receber código no Discord →</button>
+          </form>
+          <p class="switch-copy">Já tem uma conta? <a href="/member.html" data-view="login">Entre aqui</a></p>
+        </section>
+        <section id="confirm-view" aria-labelledby="confirm-title" hidden>
+          <span class="step-badge">ÚLTIMO PASSO</span><h2 id="confirm-title" tabindex="-1">Confira seu Discord</h2><p id="confirm-instructions" class="muted">Enviamos um código ao Discord vinculado ao seu IFJ. Digite-o abaixo para concluir seu cadastro.</p>
+          <form id="member-confirm-form"><label for="confirm-code">Código de confirmação</label><input id="confirm-code" class="code-input" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="000000" required><p id="confirm-feedback" class="feedback" role="status" aria-live="polite"></p><button class="primary" type="submit">Confirmar e entrar →</button></form>
+          <div class="delivery-help"><strong>Não recebeu o código?</strong><p>Confira suas mensagens privadas e permita mensagens do servidor. Aguarde 1 minuto antes de recomeçar para pedir outro código.</p><button id="restart-registration" class="text-button" type="button">Recomeçar cadastro</button></div>
+        </section>
+        <p class="staff-link">Faz parte da moderação? <a href="/">Acesse o painel da equipe</a></p>
+      </section>
+    </div>
+    <section id="welcome-view" class="welcome-card" aria-labelledby="welcome-title" hidden>
+      <div class="welcome-symbol" aria-hidden="true">R</div><p class="eyebrow">VOCÊ FAZ PARTE DA FAMÍLIA</p><h1 id="welcome-title" tabindex="-1">Bem-vindo, <span id="member-name"></span></h1><p class="welcome-message">Em breve sairá atualização do painel de vocês :)</p><div class="welcome-divider" aria-hidden="true"></div><button id="member-logout" class="secondary" type="button">Sair</button><p id="welcome-feedback" class="feedback" role="status" aria-live="polite"></p>
+    </section>
+    <noscript><p class="noscript">Ative o JavaScript do navegador para entrar ou criar sua conta de membro.</p></noscript>
+  </main>
+  <footer>ROKUHARA <span aria-hidden="true">/</span> Juntos pela mesma história.</footer>
+</body>
+</html>
